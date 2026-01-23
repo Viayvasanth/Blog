@@ -1,0 +1,242 @@
+[
+  {
+    "title": "Getting Started with Node.js",
+    "content": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. This guide covers installation, basic concepts, and best practices for building scalable applications. You'll learn about modules, the event loop, and asynchronous programming patterns.",
+    "excerpt": "Master Node.js fundamentals including the event loop, non-blocking I/O, and how to build efficient server-side applications from scratch.",
+    "examples": [
+      {
+        "title": "Basic HTTP Server",
+        "code": "const http = require('http');\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, {'Content-Type': 'text/plain'});\n  res.end('Hello World');\n});\nserver.listen(3000, () => console.log('Server running on port 3000'));"
+      },
+      {
+        "title": "Understanding the Event Loop",
+        "code": "console.log('Start');\nsetTimeout(() => console.log('Timeout'), 0);\nPromise.resolve().then(() => console.log('Promise'));\nconsole.log('End');\n// Output: Start, End, Promise, Timeout"
+      },
+      {
+        "title": "Async/Await Pattern",
+        "code": "const fetchData = async () => {\n  try {\n    const response = await fetch('https://api.example.com/data');\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n};\nfetchData();"
+      }
+    ],
+    "category": "Backend",
+    "author": "Sarah Chen",
+    "image": "https://example.com/images/nodejs-guide.jpg",
+    "createdAt": "2025-01-10T08:30:00Z",
+    "updatedAt": "2025-01-15T14:22:00Z"
+  },
+  {
+    "title": "React Hooks Deep Dive",
+    "content": "Hooks revolutionized how we write React components. This post explores useState, useEffect, useContext, and custom hooks. We'll cover common pitfalls, performance optimization, and real-world patterns for managing state in functional components.",
+    "excerpt": "Learn advanced React Hooks patterns, avoid infinite render loops, and master custom hooks for cleaner, more maintainable component code.",
+    "examples": [
+      {
+        "title": "useState Hook",
+        "code": "import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>Increment</button>\n    </div>\n  );\n}"
+      },
+      {
+        "title": "useEffect with Dependencies",
+        "code": "useEffect(() => {\n  console.log('Component mounted or title changed');\n  return () => console.log('Cleanup');\n}, [title]); // Runs when title changes"
+      },
+      {
+        "title": "Custom Hook Example",
+        "code": "function useFormInput(initialValue) {\n  const [value, setValue] = useState(initialValue);\n  return {\n    value,\n    onChange: (e) => setValue(e.target.value),\n    reset: () => setValue(initialValue)\n  };\n}\n// Usage: const email = useFormInput('');"
+      }
+    ],
+    "category": "Frontend",
+    "author": "Marcus Rodriguez",
+    "image": "https://example.com/images/react-hooks.jpg",
+    "createdAt": "2025-01-08T11:45:00Z",
+    "updatedAt": "2025-01-12T09:15:00Z"
+  },
+  {
+    "title": "Database Optimization Techniques",
+    "content": "Slow databases kill user experience. This article covers indexing strategies, query optimization, connection pooling, and caching layers. You'll see concrete examples with MongoDB and PostgreSQL, plus benchmarks showing real performance improvements.",
+    "excerpt": "Discover proven indexing strategies and query optimization techniques that reduce query time by 10x with real MongoDB and PostgreSQL examples.",
+    "examples": [
+      {
+        "title": "MongoDB Indexing",
+        "code": "// Create index on email field\ndb.users.createIndex({ email: 1 });\n\n// Compound index\ndb.orders.createIndex({ userId: 1, createdAt: -1 });\n\n// Check query performance\ndb.users.find({ email: 'user@example.com' }).explain('executionStats');"
+      },
+      {
+        "title": "PostgreSQL Query Optimization",
+        "code": "-- Without index: 5000ms\nSELECT * FROM users WHERE email = 'user@example.com';\n\n-- Create index\nCREATE INDEX idx_users_email ON users(email);\n\n-- With index: 5ms\nSELECT * FROM users WHERE email = 'user@example.com';"
+      },
+      {
+        "title": "Connection Pooling",
+        "code": "const pool = new Pool({\n  user: 'postgres',\n  password: 'password',\n  host: 'localhost',\n  port: 5432,\n  database: 'mydb',\n  max: 20, // Connection pool size\n  idleTimeoutMillis: 30000\n});"
+      }
+    ],
+    "category": "Backend",
+    "author": "James Park",
+    "image": "https://example.com/images/db-optimization.jpg",
+    "createdAt": "2025-01-05T16:20:00Z",
+    "updatedAt": "2025-01-05T16:20:00Z"
+  },
+  {
+    "title": "CSS Grid vs Flexbox: When to Use Each",
+    "content": "Confused about layout methods? This guide breaks down when Grid dominates and when Flexbox is the right choice. Includes interactive examples, browser compatibility notes, and practical decision trees for real projects.",
+    "excerpt": "Stop guessing between Grid and Flexbox. Learn the exact decision tree to choose the right layout method for any design challenge.",
+    "examples": [
+      {
+        "title": "Flexbox for Navigation",
+        "code": "<nav style={{\n  display: 'flex',\n  justifyContent: 'space-between',\n  alignItems: 'center',\n  padding: '1rem'\n}}>\n  <logo>MyApp</logo>\n  <ul style={{ display: 'flex', gap: '2rem' }}>\n    <li>Home</li>\n    <li>About</li>\n    <li>Contact</li>\n  </ul>\n</nav>"
+      },
+      {
+        "title": "CSS Grid for Dashboard",
+        "code": ".dashboard {\n  display: grid;\n  grid-template-columns: 1fr 2fr 1fr;\n  grid-template-rows: auto 1fr auto;\n  gap: 1rem;\n  height: 100vh;\n}\n.sidebar { grid-column: 1; }\n.main { grid-column: 2; }\n.widgets { grid-column: 3; }"
+      },
+      {
+        "title": "Responsive Grid",
+        "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 1rem;\n}\n/* Automatically adjusts columns based on screen size */"
+      }
+    ],
+    "category": "Frontend",
+    "author": "Emma Wilson",
+    "image": "https://example.com/images/css-layouts.jpg",
+    "createdAt": "2025-01-02T13:10:00Z",
+    "updatedAt": "2025-01-02T13:10:00Z"
+  },
+  {
+    "title": "API Design Best Practices",
+    "content": "Your API is your product's interface. Learn REST principles, versioning strategies, error handling, rate limiting, and documentation standards. This post covers real mistakes from production systems and how to avoid them.",
+    "excerpt": "Design APIs that scale: master versioning, error handling, rate limiting, and documentation that developers actually want to use.",
+    "examples": [
+      {
+        "title": "REST Endpoint Design",
+        "code": "// GET - Retrieve\nGET /api/v1/users\nGET /api/v1/users/:id\n\n// POST - Create\nPOST /api/v1/users\n\n// PUT - Update\nPUT /api/v1/users/:id\n\n// DELETE - Delete\nDELETE /api/v1/users/:id"
+      },
+      {
+        "title": "Error Handling Response",
+        "code": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Email is required\",\n  \"details\": {\n    \"field\": \"email\",\n    \"reason\": \"missing\"\n  }\n}"
+      },
+      {
+        "title": "Rate Limiting Middleware",
+        "code": "const rateLimit = require('express-rate-limit');\n\nconst limiter = rateLimit({\n  windowMs: 15 * 60 * 1000,\n  max: 100,\n  message: 'Too many requests'\n});\n\napp.use('/api/', limiter);"
+      }
+    ],
+    "category": "Backend",
+    "author": "Sarah Chen",
+    "image": "https://example.com/images/api-design.jpg",
+    "createdAt": "2024-12-28T10:00:00Z",
+    "updatedAt": "2024-12-30T15:45:00Z"
+  },
+  {
+    "title": "Testing in JavaScript: Jest vs Vitest",
+    "content": "Testing is non-negotiable for maintainable code. This guide compares Jest and Vitest—setup, syntax, performance, and when to use each. Includes unit tests, integration tests, and snapshot testing examples that actually matter.",
+    "excerpt": "Jest vs Vitest comparison: speed, features, ecosystem, and which one fits your project stack with real benchmark data.",
+    "examples": [
+      {
+        "title": "Jest Unit Test",
+        "code": "describe('Calculator', () => {\n  test('adds two numbers', () => {\n    expect(add(2, 3)).toBe(5);\n  });\n\n  test('handles negative numbers', () => {\n    expect(add(-1, 1)).toBe(0);\n  });\n});"
+      },
+      {
+        "title": "Vitest with Async",
+        "code": "import { describe, it, expect } from 'vitest';\n\ndescribe('Async Operations', () => {\n  it('fetches user data', async () => {\n    const user = await fetchUser(1);\n    expect(user.name).toBe('John');\n  });\n});"
+      },
+      {
+        "title": "Mock Functions",
+        "code": "const mockFn = vi.fn();\nmockFn(1, 2);\n\nexpect(mockFn).toHaveBeenCalledWith(1, 2);\nexpect(mockFn).toHaveBeenCalledTimes(1);\nexpect(mockFn.mock.results[0].value).toBe('expected');"
+      }
+    ],
+    "category": "Frontend",
+    "author": "Alex Thompson",
+    "image": "https://example.com/images/testing-comparison.jpg",
+    "createdAt": "2025-01-18T09:30:00Z",
+    "updatedAt": "2025-01-18T09:30:00Z"
+  },
+  {
+    "title": "Understanding TypeScript Generics",
+    "content": "Generics are confusing until they click. This post breaks down T, extends, keyof, and conditional types with practical examples. You'll see how generics prevent bugs and make your code reusable without sacrificing type safety.",
+    "excerpt": "Demystify TypeScript Generics with step-by-step examples: T, extends, keyof, and conditional types that make code bulletproof.",
+    "examples": [
+      {
+        "title": "Basic Generic Function",
+        "code": "function identity<T>(arg: T): T {\n  return arg;\n}\n\nconst num = identity<number>(42);\nconst str = identity<string>('hello');"
+      },
+      {
+        "title": "Generic with Constraints",
+        "code": "interface HasLength {\n  length: number;\n}\n\nfunction logLength<T extends HasLength>(arg: T): void {\n  console.log(arg.length);\n}\n\nlogLength('hello'); // OK\nlogLength([1, 2, 3]); // OK\nlogLength(42); // Error"
+      },
+      {
+        "title": "Conditional Types",
+        "code": "type IsString<T> = T extends string ? true : false;\n\ntype A = IsString<'hello'>; // true\ntype B = IsString<42>; // false\n\ntype Flatten<T> = T extends Array<infer U> ? U : T;\ntype Str = Flatten<string[]>; // string"
+      }
+    ],
+    "category": "Backend",
+    "author": "Marcus Rodriguez",
+    "image": "https://example.com/images/ts-generics.jpg",
+    "createdAt": "2025-01-14T14:15:00Z",
+    "updatedAt": "2025-01-16T11:22:00Z"
+  },
+  {
+    "title": "Docker for Full-Stack Developers",
+    "content": "Stop saying 'it works on my machine.' Docker containers ensure consistency across development, testing, and production. Learn Dockerfile basics, docker-compose for local development, and deployment strategies that actually work.",
+    "excerpt": "Containerize your full-stack app: Dockerfile optimization, docker-compose workflows, and production deployment strategies that prevent disasters.",
+    "examples": [
+      {
+        "title": "Dockerfile for Node.js",
+        "code": "FROM node:18-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\nCOPY . .\nEXPOSE 3000\nCMD ['npm', 'start']"
+      },
+      {
+        "title": "Docker Compose Setup",
+        "code": "version: '3.8'\nservices:\n  app:\n    build: .\n    ports:\n      - '3000:3000'\n    environment:\n      - DATABASE_URL=postgresql://user:pass@db:5432/mydb\n  db:\n    image: postgres:14\n    environment:\n      - POSTGRES_PASSWORD=password"
+      },
+      {
+        "title": "Build and Run",
+        "code": "# Build image\ndocker build -t myapp:1.0 .\n\n# Run container\ndocker run -p 3000:3000 myapp:1.0\n\n# Using docker-compose\ndocker-compose up -d"
+      }
+    ],
+    "category": "DevOps",
+    "author": "James Park",
+    "image": "https://example.com/images/docker-guide.jpg",
+    "createdAt": "2025-01-11T16:45:00Z",
+    "updatedAt": "2025-01-13T10:30:00Z"
+  },
+  {
+    "title": "Authentication vs Authorization: Get It Right",
+    "content": "Most developers confuse these. Authentication proves who you are; authorization decides what you can do. This post covers JWT, OAuth2, session-based auth, and common security mistakes that put user data at risk.",
+    "excerpt": "Secure your app: Authentication vs Authorization, JWT vs OAuth2, and the 5 critical security mistakes that expose user data.",
+    "examples": [
+      {
+        "title": "JWT Authentication",
+        "code": "const jwt = require('jsonwebtoken');\n\n// Create token\nconst token = jwt.sign({ userId: 123 }, 'secret_key', { expiresIn: '1h' });\n\n// Verify token\ntry {\n  const decoded = jwt.verify(token, 'secret_key');\n  console.log(decoded.userId);\n} catch (err) {\n  console.log('Invalid token');\n}"
+      },
+      {
+        "title": "Authorization Middleware",
+        "code": "function isAdmin(req, res, next) {\n  if (req.user.role !== 'admin') {\n    return res.status(403).json({ error: 'Forbidden' });\n  }\n  next();\n}\n\napp.delete('/api/users/:id', isAdmin, deleteUser);"
+      },
+      {
+        "title": "OAuth2 Login",
+        "code": "const passport = require('passport');\nconst GoogleStrategy = require('passport-google-oauth20');\n\npassport.use(new GoogleStrategy({\n  clientID: 'YOUR_GOOGLE_ID',\n  clientSecret: 'YOUR_SECRET',\n  callbackURL: '/auth/google/callback'\n}, (accessToken, refreshToken, profile, done) => {\n  // User authenticated\n}));"
+      }
+    ],
+    "category": "Backend",
+    "author": "Emma Wilson",
+    "image": "https://example.com/images/auth-security.jpg",
+    "createdAt": "2025-01-09T12:00:00Z",
+    "updatedAt": "2025-01-17T08:45:00Z"
+  },
+  {
+    "title": "Web Performance: From 8s to 2s Load Time",
+    "content": "Users leave slow sites. This case study shows real optimizations: code splitting, image optimization, lazy loading, and caching strategies. Includes Lighthouse reports and concrete metrics that matter for conversions.",
+    "excerpt": "Real case study: how we cut load time from 8 seconds to 2 seconds with code splitting, image optimization, and intelligent caching.",
+    "examples": [
+      {
+        "title": "Code Splitting in React",
+        "code": "import { lazy, Suspense } from 'react';\n\nconst Dashboard = lazy(() => import('./Dashboard'));\n\nfunction App() {\n  return (\n    <Suspense fallback={<Loading />}>\n      <Dashboard />\n    </Suspense>\n  );\n}"
+      },
+      {
+        "title": "Image Optimization",
+        "code": "<picture>\n  <source srcSet=\"image.webp\" type=\"image/webp\" />\n  <source srcSet=\"image.jpg\" type=\"image/jpeg\" />\n  <img src=\"image.jpg\" alt=\"description\" loading=\"lazy\" />\n</picture>"
+      },
+      {
+        "title": "Service Worker Caching",
+        "code": "self.addEventListener('install', (event) => {\n  event.waitUntil(\n    caches.open('v1').then((cache) => {\n      return cache.addAll(['/index.html', '/styles.css', '/app.js']);\n    })\n  );\n});"
+      }
+    ],
+    "category": "Frontend",
+    "author": "Sarah Chen",
+    "image": "https://example.com/images/performance-optimization.jpg",
+    "createdAt": "2025-01-06T11:20:00Z",
+    "updatedAt": "2025-01-07T15:10:00Z"
+  }
+]
