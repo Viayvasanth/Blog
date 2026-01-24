@@ -1,5 +1,19 @@
 import {Router} from 'express'
 import { PostData } from '../src/model/post.mjs';
+import multer from "multer";
+
+
+
+// Create uploads folder manually in backend root
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, "uploads"),
+  filename: (req, file, cb) =>
+    cb(null, Date.now() + "-" + file.originalname)
+});
+
+const upload = multer({ storage });
+
+
 
 const router = Router()
 
