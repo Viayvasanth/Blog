@@ -41,20 +41,21 @@ router.get('/api/blogs/:id',async(req,res)=>{
 
 //post 
 
-router.post('/api/blogs',async(req,res)=>{
-
-    try{
-        const postblog = new PostData(req.body)
-        const savedblog= await postblog.save();
-
-        return res.status(201).send(savedblog);
+router.post('/api/blogs', upload.single("image"), async (req, res) => {
+    try {
+      const postblog = new PostData({
+        ...req.body,
+        image: req.file.filename   // store only filename
+      });
+  
+      const savedblog = await postblog.save();
+      return res.status(201).send(savedblog);
+  
+    } catch (error) {
+      return res.status(400).send({ msg: error.message });
     }
-    catch(error){
-        return res.status(400).send({ msg: err.message });
-
-    }
-    
-})
+  });
+  
 
 //put
 

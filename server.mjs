@@ -9,9 +9,26 @@ import dotenv from 'dotenv'
 dotenv.config();
 const app = express()
 
+
+//using  multer
+import multer from "multer";
+
+// Create uploads folder manually in backend root
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, "uploads"),
+  filename: (req, file, cb) =>
+    cb(null, Date.now() + "-" + file.originalname)
+});
+
+const upload = multer({ storage });
+
+
 //middleware
 app.use(express.json());
 app.use(cors());
+
+// Serve images publicly
+app.use("/uploads", express.static("uploads"));
 
 //datababe connect
 DB()
