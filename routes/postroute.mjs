@@ -3,7 +3,6 @@ import { PostData } from '../src/model/post.mjs';
 import multer from "multer";
 
 
-
 // Create uploads folder manually in backend root
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads"),
@@ -36,10 +35,10 @@ router.get('/api/blogs',async(req,res)=>{
 
 router.get('/api/blogs/:slug',async(req,res)=>{
 
-    const slugs = req.params.slug;
-
+    // const {slug} = req.params.slug;
+    //   // console.log(slug)
     try{
-        const getidblog=await PostData.findBySlug(slugs);
+        const getidblog=await PostData.findOne({slug :req.params.slug });
 
         if(!getidblog){
           return  res.status(404).send({message:"Post not found"})

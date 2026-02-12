@@ -17,6 +17,7 @@ const PostSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    slug: { type: String, unique: true, sparse: true, index: true },
 
     content:{
         type:String,
@@ -55,5 +56,12 @@ const PostSchema = new mongoose.Schema({
     }
 
 })
+
+PostSchema.pre('save', function(next) {
+    if (this.isModified('title') || !this.slug) {
+      this.slug = this.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    }
+    next();
+  });
 
 export const PostData = mongoose.model('Post',PostSchema);
