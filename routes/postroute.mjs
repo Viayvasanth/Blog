@@ -34,12 +34,12 @@ router.get('/api/blogs',async(req,res)=>{
 
 //get id
 
-router.get('/api/blogs/:id',async(req,res)=>{
+router.get('/api/blogs/:slug',async(req,res)=>{
 
-    const ID = req.params.id;
+    const slugs = req.params.slug;
 
     try{
-        const getidblog=await PostData.findById(ID);
+        const getidblog=await PostData.findBySlug(slugs);
 
         if(!getidblog){
           return  res.status(404).send({message:"Post not found"})
@@ -59,6 +59,7 @@ router.post('/api/blogs', upload.single("image"), async (req, res) => {
     try {
       const postblog = new PostData({
         ...req.body,
+        slug: generateSlug(req.body.title),
         image: req.file.filename   // store only filename
       });
   
