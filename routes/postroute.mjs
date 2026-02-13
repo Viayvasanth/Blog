@@ -21,12 +21,40 @@ const router = Router()
 
 router.get('/api/blogs',async(req,res)=>{
 
+  //pagination
+
+  const page = Math.max(1, parseInt(req.query.page) || 1); // default page 1, min 1
+  const limit = Math.min(10, parseInt(req.query.limit) || 3); // cap at 100
+  const skip = (page - 1) * limit;
+
     try{
-        const getblog=await PostData.find();
-         res.send(getblog);
+        const getblog=await PostData.find()
+        .skip(skip)
+        .limit(limit);
+
+        const total = await PostData.countDocuments();
+
+        if(total === 0){
+          return  res.status(404).send({message:"No blogs found"})
+        }
+
+        const totalPages = Math.ceil(total / limit);
+        if (page > totalPages) {
+          return res.status(404).send({ message: "Page not found" });
+        }
+
+         res.status(200).send(
+          {data: getblog,
+            pagination: {
+            currentPage: page,
+            pageSize: limit,
+            totalRecords: total,
+            totalPages: Math.ceil(total / limit),
+            hasNextPage: page < Math.ceil(total / limit)
+          }});
     }
     catch(error){
-         res.status(404).send({ message: "Invalid data" });
+         res.status(500).send({ message: "server error" });
     }
 
 })
