@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { PostData } from '../src/model/post.mjs';
+import  {PostData}  from '../src/model/post.mjs';
 import multer from "multer";
 
 
@@ -11,11 +11,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
-
-
 const router = Router()
-
 
 //Get All post
 
@@ -79,6 +75,42 @@ router.get('/api/blogs/:slug',async(req,res)=>{
         res.status(400).send({message:error.message})
     }
 })
+
+
+//post comments
+
+router.post('/api/blogs/:slug/comments', async (req, res) => {
+  try {
+    const { name, description, rating } = req.body;
+    
+    if (!name || !description || !rating) {
+      return res.status(400).send({ message: "All fields required" });
+    }
+    
+    if (rating < 1 || rating > 5) {
+      return res.status(400).send({ message: "Rating must be 1-5" });
+    }
+    
+    const post = await PostData.findOne({ slug: req.params.slug });
+        
+    if (!post) {
+      return res.status(404).send({ message: "Post not found" });
+    }
+    
+    post.comments.push({
+      name,
+      description,
+      rating,
+      createdAt: new Date()
+    });
+    
+    await post.save();
+    
+    res.status(201).send({ message: "Comment added successfully", post});
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
 
 //post 
 
@@ -145,4 +177,23 @@ router.delete('/api/blogs/:id',async(req,res)=>{
     }
 })
 
+
+router.delete('/api/blogs/:slug/comments/:commentId', async (req, res) => {
+  try {
+    const post = await PostData.findOne({ slug: req.params.slug });
+    
+    if (!post) {
+      return res.status(404).send({ message: "Post not found" });
+    }
+    
+    // Remove comment by ID
+    post.comments = post.comments.filter(c => c._id.toString() !== req.params.commentId);
+    
+    await post.save();
+    
+    res.status(200).send({ message: "Comment deleted", post });
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
 export default router

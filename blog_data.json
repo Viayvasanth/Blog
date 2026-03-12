@@ -21,7 +21,33 @@
     "author": "Sarah Chen",
     "image": "https://example.com/images/nodejs-guide.jpg",
     "createdAt": "2025-01-10T08:30:00Z",
-    "updatedAt": "2025-01-15T14:22:00Z"
+    "updatedAt": "2025-01-15T14:22:00Z",
+    "comments": [
+      {
+        "name": "John Dev",
+        "description": "This guide really helped me understand the event loop. The examples were crystal clear!",
+        "rating": 5,
+        "createdAt": "2025-01-10T10:15:00Z"
+      },
+      {
+        "name": "Sara Frontend",
+        "description": "Great explanation of async/await. I finally get why callbacks matter. Well written!",
+        "rating": 5,
+        "createdAt": "2025-01-10T12:45:00Z"
+      },
+      {
+        "name": "Mike Backend",
+        "description": "Good introduction but would love more depth on streams and buffers for large file handling.",
+        "rating": 4,
+        "createdAt": "2025-01-11T08:20:00Z"
+      },
+      {
+        "name": "Anna Full Stack",
+        "description": "Perfect for beginners like me. Exactly what I needed to get started with Node.js.",
+        "rating": 5,
+        "createdAt": "2025-01-11T14:30:00Z"
+      }
+    ]
   },
   {
     "title": "React Hooks Deep Dive",
@@ -45,7 +71,33 @@
     "author": "Marcus Rodriguez",
     "image": "https://example.com/images/react-hooks.jpg",
     "createdAt": "2025-01-08T11:45:00Z",
-    "updatedAt": "2025-01-12T09:15:00Z"
+    "updatedAt": "2025-01-12T09:15:00Z",
+    "comments": [
+      {
+        "name": "Chris React",
+        "description": "The custom hooks section saved me hours of debugging. Exactly what I was looking for!",
+        "rating": 5,
+        "createdAt": "2025-01-08T14:20:00Z"
+      },
+      {
+        "name": "Emma Developer",
+        "description": "Helpful but a bit advanced for beginners. Could use more beginner-friendly examples.",
+        "rating": 3,
+        "createdAt": "2025-01-09T09:10:00Z"
+      },
+      {
+        "name": "David Coder",
+        "description": "The useEffect dependency array explanation finally makes sense. Thank you!",
+        "rating": 5,
+        "createdAt": "2025-01-09T11:35:00Z"
+      },
+      {
+        "name": "Lisa JSX",
+        "description": "Amazing post! The performance optimization tips are gold. Bookmarking this forever.",
+        "rating": 5,
+        "createdAt": "2025-01-09T15:45:00Z"
+      }
+    ]
   },
   {
     "title": "Database Optimization Techniques",
@@ -69,7 +121,33 @@
     "author": "James Park",
     "image": "https://example.com/images/db-optimization.jpg",
     "createdAt": "2025-01-05T16:20:00Z",
-    "updatedAt": "2025-01-05T16:20:00Z"
+    "updatedAt": "2025-01-05T16:20:00Z",
+    "comments": [
+      {
+        "name": "Alex DBA",
+        "description": "The indexing strategies worked perfectly on our production database. Cut query time by 80%!",
+        "rating": 5,
+        "createdAt": "2025-01-06T08:00:00Z"
+      },
+      {
+        "name": "Rachel SQL",
+        "description": "Really practical examples. The PostgreSQL benchmark comparison was especially useful.",
+        "rating": 5,
+        "createdAt": "2025-01-06T10:30:00Z"
+      },
+      {
+        "name": "Tom Database",
+        "description": "Good overview but would appreciate more on NoSQL optimization patterns.",
+        "rating": 4,
+        "createdAt": "2025-01-06T13:15:00Z"
+      },
+      {
+        "name": "Nina Performance",
+        "description": "This saved our startup thousands in infrastructure costs. Highly recommend!",
+        "rating": 5,
+        "createdAt": "2025-01-07T09:45:00Z"
+      }
+    ]
   },
   {
     "title": "CSS Grid vs Flexbox: When to Use Each",
@@ -93,7 +171,33 @@
     "author": "Emma Wilson",
     "image": "https://example.com/images/css-layouts.jpg",
     "createdAt": "2025-01-02T13:10:00Z",
-    "updatedAt": "2025-01-02T13:10:00Z"
+    "updatedAt": "2025-01-02T13:10:00Z",
+    "comments": [
+      {
+        "name": "Kevin CSS",
+        "description": "Finally understand when to use Grid! The decision tree is super helpful for my projects.",
+        "rating": 5,
+        "createdAt": "2025-01-03T11:20:00Z"
+      },
+      {
+        "name": "Sophie Design",
+        "description": "The interactive examples really helped me visualize the differences. Well done!",
+        "rating": 5,
+        "createdAt": "2025-01-03T14:50:00Z"
+      },
+      {
+        "name": "Paul Layout",
+        "description": "Good comparison but examples could be more complex for advanced use cases.",
+        "rating": 3,
+        "createdAt": "2025-01-04T09:30:00Z"
+      },
+      {
+        "name": "Julia Frontend",
+        "description": "This article cleared up so much confusion. Shared it with my entire team!",
+        "rating": 5,
+        "createdAt": "2025-01-04T16:15:00Z"
+      }
+    ]
   },
   {
     "title": "API Design Best Practices",
@@ -117,7 +221,33 @@
     "author": "Sarah Chen",
     "image": "https://example.com/images/api-design.jpg",
     "createdAt": "2024-12-28T10:00:00Z",
-    "updatedAt": "2024-12-30T15:45:00Z"
+    "updatedAt": "2024-12-30T15:45:00Z",
+    "comments": [
+      {
+        "name": "Ryan API",
+        "description": "The error handling section alone was worth reading. Implemented it immediately in production.",
+        "rating": 5,
+        "createdAt": "2024-12-29T10:00:00Z"
+      },
+      {
+        "name": "Monica Backend",
+        "description": "Best practices guide I've read. Rate limiting examples are particularly useful.",
+        "rating": 5,
+        "createdAt": "2024-12-29T13:45:00Z"
+      },
+      {
+        "name": "Greg Architecture",
+        "description": "Good fundamentals but lacks discussion on GraphQL alternatives to REST.",
+        "rating": 4,
+        "createdAt": "2024-12-30T08:20:00Z"
+      },
+      {
+        "name": "Claire DevOps",
+        "description": "Shared this with our API development team. Everyone loved it!",
+        "rating": 5,
+        "createdAt": "2024-12-30T15:00:00Z"
+      }
+    ]
   },
   {
     "title": "Testing in JavaScript: Jest vs Vitest",
@@ -141,7 +271,33 @@
     "author": "Alex Thompson",
     "image": "https://example.com/images/testing-comparison.jpg",
     "createdAt": "2025-01-18T09:30:00Z",
-    "updatedAt": "2025-01-18T09:30:00Z"
+    "updatedAt": "2025-01-18T09:30:00Z",
+    "comments": [
+      {
+        "name": "Victor QA",
+        "description": "Finally migrated from Jest to Vitest after reading this. Love the speed improvement!",
+        "rating": 5,
+        "createdAt": "2025-01-18T11:00:00Z"
+      },
+      {
+        "name": "Helen Testing",
+        "description": "The benchmark comparison was eye-opening. Vitest is clearly the future.",
+        "rating": 5,
+        "createdAt": "2025-01-18T13:30:00Z"
+      },
+      {
+        "name": "Oscar Developer",
+        "description": "Good comparison but Jest still has better ecosystem support for my projects.",
+        "rating": 4,
+        "createdAt": "2025-01-18T15:45:00Z"
+      },
+      {
+        "name": "Zara Engineer",
+        "description": "Comprehensive guide! The snapshot testing section saved me from refactoring nightmares.",
+        "rating": 5,
+        "createdAt": "2025-01-19T09:15:00Z"
+      }
+    ]
   },
   {
     "title": "Understanding TypeScript Generics",
@@ -165,7 +321,33 @@
     "author": "Marcus Rodriguez",
     "image": "https://example.com/images/ts-generics.jpg",
     "createdAt": "2025-01-14T14:15:00Z",
-    "updatedAt": "2025-01-16T11:22:00Z"
+    "updatedAt": "2025-01-16T11:22:00Z",
+    "comments": [
+      {
+        "name": "Ian TypeScript",
+        "description": "Generics finally clicked for me! The conditional types explanation was perfect.",
+        "rating": 5,
+        "createdAt": "2025-01-15T10:20:00Z"
+      },
+      {
+        "name": "Patricia Types",
+        "description": "Best explanation of keyof I've found anywhere. Bookmarking this permanently.",
+        "rating": 5,
+        "createdAt": "2025-01-15T12:40:00Z"
+      },
+      {
+        "name": "Nathan Coding",
+        "description": "Good intro but advanced generics like distributive conditionals still feel confusing.",
+        "rating": 3,
+        "createdAt": "2025-01-15T14:55:00Z"
+      },
+      {
+        "name": "Olivia Static",
+        "description": "This post elevated my TypeScript skills significantly. Thank you!",
+        "rating": 5,
+        "createdAt": "2025-01-16T09:30:00Z"
+      }
+    ]
   },
   {
     "title": "Docker for Full-Stack Developers",
@@ -189,7 +371,33 @@
     "author": "James Park",
     "image": "https://example.com/images/docker-guide.jpg",
     "createdAt": "2025-01-11T16:45:00Z",
-    "updatedAt": "2025-01-13T10:30:00Z"
+    "updatedAt": "2025-01-13T10:30:00Z",
+    "comments": [
+      {
+        "name": "Quinn DevOps",
+        "description": "Docker finally makes sense! The docker-compose examples saved me from countless environment bugs.",
+        "rating": 5,
+        "createdAt": "2025-01-12T08:15:00Z"
+      },
+      {
+        "name": "Riley Container",
+        "description": "Perfect for developers new to containerization. The Dockerfile optimization tips were clutch.",
+        "rating": 5,
+        "createdAt": "2025-01-12T10:45:00Z"
+      },
+      {
+        "name": "Sam Infrastructure",
+        "description": "Solid basics but could use Kubernetes examples for production scaling.",
+        "rating": 4,
+        "createdAt": "2025-01-12T13:20:00Z"
+      },
+      {
+        "name": "Uma Cloud",
+        "description": "Game-changer for our deployment pipeline. Highly recommend to every developer!",
+        "rating": 5,
+        "createdAt": "2025-01-13T11:00:00Z"
+      }
+    ]
   },
   {
     "title": "Authentication vs Authorization: Get It Right",
@@ -213,7 +421,33 @@
     "author": "Emma Wilson",
     "image": "https://example.com/images/auth-security.jpg",
     "createdAt": "2025-01-09T12:00:00Z",
-    "updatedAt": "2025-01-17T08:45:00Z"
+    "updatedAt": "2025-01-17T08:45:00Z",
+    "comments": [
+      {
+        "name": "Violet Security",
+        "description": "Finally understand the difference between auth and authz. This prevented a major security hole!",
+        "rating": 5,
+        "createdAt": "2025-01-10T09:30:00Z"
+      },
+      {
+        "name": "Walter Auth",
+        "description": "The JWT vs OAuth2 comparison is incredibly helpful. Using both correctly now.",
+        "rating": 5,
+        "createdAt": "2025-01-10T11:50:00Z"
+      },
+      {
+        "name": "Xander Systems",
+        "description": "Good security guide but would benefit from SAML and other enterprise auth methods.",
+        "rating": 4,
+        "createdAt": "2025-01-10T14:25:00Z"
+      },
+      {
+        "name": "Yasmin Developer",
+        "description": "Shared this with my team. It's now part of our onboarding documentation!",
+        "rating": 5,
+        "createdAt": "2025-01-11T10:15:00Z"
+      }
+    ]
   },
   {
     "title": "Web Performance: From 8s to 2s Load Time",
@@ -237,6 +471,32 @@
     "author": "Sarah Chen",
     "image": "https://example.com/images/performance-optimization.jpg",
     "createdAt": "2025-01-06T11:20:00Z",
-    "updatedAt": "2025-01-07T15:10:00Z"
+    "updatedAt": "2025-01-07T15:10:00Z",
+    "comments": [
+      {
+        "name": "Zoe Performance",
+        "description": "Applied your strategies and cut our load time from 6s to 2.5s. Revenue increased 15%!",
+        "rating": 5,
+        "createdAt": "2025-01-07T09:00:00Z"
+      },
+      {
+        "name": "Aaron Speed",
+        "description": "The image optimization tips alone justified reading this. WebP conversion was key.",
+        "rating": 5,
+        "createdAt": "2025-01-07T11:30:00Z"
+      },
+      {
+        "name": "Bella UX",
+        "description": "Great case study but real-world metrics would be even more convincing.",
+        "rating": 4,
+        "createdAt": "2025-01-07T13:45:00Z"
+      },
+      {
+        "name": "Caleb Frontend",
+        "description": "Best performance guide I've read. Every frontend dev needs to read this!",
+        "rating": 5,
+        "createdAt": "2025-01-08T08:20:00Z"
+      }
+    ]
   }
 ]

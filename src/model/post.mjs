@@ -11,6 +11,28 @@ const exampleSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
+
+const CommentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
 const PostSchema = new mongoose.Schema({
 
     title:{
@@ -53,15 +75,22 @@ const PostSchema = new mongoose.Schema({
     updatedAt:{
         type:Date,
         default:Date.now,
-    }
+    },
+    comments : [CommentSchema]
 
 })
 
+
+
 PostSchema.pre('save', function(next) {
+  try {
     if (this.isModified('title') || !this.slug) {
       this.slug = this.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     }
-    next();
-  });
+  } catch (error) {
+    next(error);
+  }
+});
 
 export const PostData = mongoose.model('Post',PostSchema);
+ 
